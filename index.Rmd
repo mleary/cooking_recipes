@@ -1,0 +1,32 @@
+---
+title: "Recipes I use often"
+---
+
+```{r, echo=FALSE, warning=FALSE}
+
+library(DT)
+library(purrr)
+
+recipes_data <- utils::read.csv("./data.csv")
+
+prep_recipe <- function(recipe, link, notes){
+  data.frame(
+    Dish = paste0("<a href='",link,"'>",recipe,"</a>"),
+    Notes = notes
+  )
+}
+
+temp <- purrr::pmap_dfr(.l=list(recipes_data$Recipe, recipes_data$Website, recipes_data$Notes),.f=prep_recipe)
+
+DT::datatable(
+  temp, 
+  escape = FALSE, 
+  class = 'cell-border stripe', 
+  rownames =  FALSE,
+  options = list(
+    columnDefs = list(list(className = 'dt-left', targets = "_all"))
+    )
+  )
+
+```
+

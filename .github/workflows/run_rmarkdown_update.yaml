@@ -1,0 +1,28 @@
+on:
+  # Trigger the workflow on a successful merge
+  # but only for the main branch
+  push:
+    branches:
+      - main
+ 
+ jobs:
+  run-rmarkdown:
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Query dependencies
+        run: |
+          install.packages("rmarkdown")
+          install.packages("DT")
+          install.packages("purrr")
+          rmarkdown::render_site()
+        shell: Rscript {0}
