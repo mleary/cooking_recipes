@@ -11,18 +11,13 @@ on:
     
     steps:
       - uses: actions/checkout@v2
-
-      - uses: r-lib/actions/setup-r@master
-        with:
-          r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
-
-      - uses: r-lib/actions/setup-pandoc@master
-
-      - name: Query dependencies
-        run: |
-          install.packages("rmarkdown")
-          install.packages("DT")
-          install.packages("purrr")
-          rmarkdown::render_site()
-        shell: Rscript {0}
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install rmarkdown 
+        run: Rscript -e 'install.packages("rmarkdown")'
+      - name: Install DT 
+        run: Rscript -e 'install.packages("DT")'
+      - name: Install purrr
+        run: Rscript -e 'install.packages("purrr")'
+      - name: Render website
+        run: Rscript -e 'rmarkdown::render_site()'
