@@ -16,8 +16,8 @@ jobs:
       - name: Install rmarkdown
         run: Rscript -e "install.packages('rmarkdown')"
       - name: Install DT 
-        run: Rscript -e 'install.packages("DT")'
+        run: Rscript -e "install.packages('DT')"
       - name: Install purrr
-        run: Rscript -e 'install.packages("purrr")'
+        run: Rscript -e "install.packages('purrr')"
       - name: Render website
-        run: Rscript -e 'rmarkdown::render_site()'
+        run: Rscript -e "rmarkdown::render_site()"
