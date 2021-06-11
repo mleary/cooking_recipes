@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore: # Don't trigger on files that are updated by the CI
+      - .gitignore
+      - README.md
  
 jobs:
   run-rmarkdown:
