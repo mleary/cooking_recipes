@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths-ignore: # Don't trigger on files that are updated by the CI
-      - .gitignore
-      - README.md
-      - /.github/workflows/*
+      - '.gitignore'
+      - 'README.md'
+      - '.github/*'
  
 jobs:
   run-rmarkdown:
