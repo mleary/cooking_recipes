@@ -7,7 +7,7 @@ on:
     paths-ignore: # Don't trigger on files that are updated by the CI
       - '.gitignore'
       - 'README.md'
-      - '.github/*'
+      - '.github/**'
  
 jobs:
   run-rmarkdown:
