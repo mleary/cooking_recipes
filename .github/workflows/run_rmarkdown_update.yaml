@@ -19,7 +19,6 @@ jobs:
         with:
           r-version: '4.0.2' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-pandoc@v1
-      - name: Install rmarkdown
       - name: Run run_scrpit.R
         run: |
           source('./scripts/run_script.R')
