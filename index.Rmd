@@ -28,6 +28,5 @@ DT::datatable(
     )
   )
 
-
 ```
 
