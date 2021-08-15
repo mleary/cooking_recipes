@@ -19,7 +19,12 @@ jobs:
         with:
           r-version: '4.0.2' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install rmarkdown
       - name: Run run_scrpit.R
         run: |
-          source('./scripts/run_script.R')
+          source('./scripts/run_rscript.R')
         shell: Rscript {0}
+      - name: Commit results
+        run: |
+          git commit index.html -m 'commit new index.html' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
