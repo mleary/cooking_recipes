@@ -1,5 +1,8 @@
 # cooking_recipes
 
+[![.github/workflows/run_rmarkdown_update.yaml](https://github.com/mleary/cooking_recipes/actions/workflows/run_rmarkdown_update.yaml/badge.svg)](https://github.com/mleary/cooking_recipes/actions/workflows/run_rmarkdown_update.yaml)
+
+
 I am terrible at saving / remembering which recipes we use for dinner dishes we like AND I 
 do not have a Pinterest account to save it.  My spouse is tired of me asking for the link 
 to the same recipe again and again.  And she is right, I should have a way of saving 
