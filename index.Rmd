@@ -6,6 +6,7 @@ title: "Recipes I use often"
 
 library(DT)
 library(purrr)
+library(dplyr)
 
 recipes_data <- utils::read.csv("./data.csv")
 
