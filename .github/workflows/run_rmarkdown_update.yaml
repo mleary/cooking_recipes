@@ -22,7 +22,7 @@ jobs:
       - name: Install rmarkdown
       - name: Run run_scrpit.R
         run: |
-          source('./scripts/run_rscript.R')
+          source('./scripts/run_script.R')
         shell: Rscript {0}
       - name: Commit results
         run: |
