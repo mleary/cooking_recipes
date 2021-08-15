@@ -14,16 +14,13 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: '4.0.2' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install rmarkdown
-        run: Rscript -e "install.packages('rmarkdown')"
-      - name: Install DT 
-        run: Rscript -e "install.packages('DT')"
-      - name: Install dplyr
-        run: Rscript -e "install.packages('dplyr')"
-      - name: Install purrr
-        run: Rscript -e "install.packages('purrr')"
-      - name: Render website
-        run: Rscript -e "rmarkdown::render_site()"
+      - name: Run run_scrpit.R
+        run: |
+          source('./scripts/run_rscript.R')
+        shell: Rscript {0}

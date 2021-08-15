@@ -1,0 +1,7 @@
+.libPaths("./.checkpoint/2021-06-01/lib/x86_64-w64-mingw32/4.0.2")
+
+print(getwd())
+
+rmarkdown::render(
+  input = "./index.Rmd",
+)
