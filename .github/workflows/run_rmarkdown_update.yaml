@@ -11,8 +11,6 @@ on:
       - 'README.md'
       - '.github/**'
 
-name: Render index.rmd
-
 jobs:
   run-rmarkdown:
     name: Render index
