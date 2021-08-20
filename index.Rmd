@@ -2,6 +2,7 @@
 title: "Recipes I use often"
 ---
 
+
 ```{r, echo=FALSE, warning=FALSE}
 
 library(DT)
