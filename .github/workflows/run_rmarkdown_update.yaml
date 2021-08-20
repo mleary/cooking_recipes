@@ -8,22 +8,23 @@ on:
       - '.gitignore'
       - 'README.md'
       - '.github/**'
- 
+
+name: Render index.rmd
+
 jobs:
   run-rmarkdown:
+    name: Render index
     runs-on: windows-latest
-    
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
         with:
           r-version: '4.0.2' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Run run_scrpit.R
-        run: |
-          source('./scripts/run_script.R')
-        shell: Rscript {0}
+        run: Rscipt -e 'source("./scripts/run_rscript.R")'
       - name: Commit results
         run: |
-          git commit index.html -m 'commit new index.html' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
+          git commit index.html -m 'commit updated index.html' 
+          git push origin 
+
