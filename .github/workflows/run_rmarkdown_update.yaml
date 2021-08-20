@@ -22,7 +22,7 @@ jobs:
           r-version: '4.0.2' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Run run_scrpit.R
-        run: Rscipt -e 'source("./scripts/run_rscript.R")'
+        run: Rscript -e 'source("./scripts/run_rscript.R")'
       - name: Commit results
         run: |
           git commit index.html -m 'commit updated index.html' 
