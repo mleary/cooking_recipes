@@ -22,7 +22,10 @@ jobs:
 
     # install packages needed
     - name: install required packages
-      run: Rscript -e 'install.packages(c("rmarkdown", "DT", "purrr"))'
+      run: |
+        Rscript -e 'install.packages("purrr")'
+        Rscript -e 'install.packages("DT")'
+        Rscript -e 'install.packages("rmarkdown")'
 
     # Render READEME.md using rmarkdown
     - name: render index.html
