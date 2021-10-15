@@ -1,5 +1,3 @@
-name: render readme
-
 on:
   # Trigger the workflow on a successful merge
   # but only for the main branch
@@ -10,27 +8,19 @@ on:
       - '.gitignore'
       - 'README.md'
       - '.github/**'
-
+ 
 jobs:
   run-rmarkdown:
     runs-on: windows-latest
+    
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '4.0.2' # The R version to download (if necessary) and use.
     - uses: r-lib/actions/setup-pandoc@v1
-
-    # install packages needed
-    - name: install required packages
-      run: |
-        Rscript -e 'install.packages("purrr")'
-        Rscript -e 'install.packages("DT")'
-        Rscript -e 'install.packages("rmarkdown")'
-
-    # Render READEME.md using rmarkdown
-    - name: render index.html
-      run: Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'
-
+    - name: Run run_scrpit.R
+      run: Rscript ./scripts/run_script.R
     - name: commit rendered README
       run: |
         git config --local user.name github-actions
