@@ -3,12 +3,13 @@ title: "Recipes I use often"
 ---
 
 
-```{r, echo=FALSE, warning=FALSE}
-
+```{r, include=FALSE}
 library(DT)
 library(purrr)
 library(dplyr)
+```
 
+```{r, echo=FALSE, warning=FALSE}
 recipes_data <- utils::read.csv("./data.csv")
 
 prep_recipe <- function(recipe, link, notes){
