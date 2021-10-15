@@ -13,17 +13,16 @@ on:
 
 jobs:
   run-rmarkdown:
-    name: Render index
     runs-on: windows-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - uses: r-lib/actions/setup-r@v1
+    - uses: actions/checkout@masetr
+    - uses: r-lib/actions/setup-r@vmaster
     - uses: r-lib/actions/setup-pandoc@v1
 
     # install packages needed
     - name: install required packages
-      run: Rscript -e 'install.packages(c("backports", "rmarkdown", "DT", "purrr"))'
+      run: Rscript -e 'install.packages(c("rmarkdown", "DT", "purrr"))'
 
     # Render READEME.md using rmarkdown
     - name: render index.html
@@ -31,9 +30,11 @@ jobs:
 
     - name: commit rendered README
       run: |
+        git config --local user.name github-actions
+        git config --local user.email "actions@github.com"
         git add index.html 
-        git commit -m "Re-build index.html" || echo "No changes to commit"
-        git push origin main || echo "No changes to commit"
+        git commit -m "Re-build index.html"
+        git push origin main 
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
         username: github-actions
