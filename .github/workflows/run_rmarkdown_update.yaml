@@ -16,8 +16,8 @@ jobs:
     runs-on: windows-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@masetr
-    - uses: r-lib/actions/setup-r@vmaster
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
     - uses: r-lib/actions/setup-pandoc@v1
 
     # install packages needed
