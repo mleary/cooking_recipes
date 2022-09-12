@@ -7,3 +7,6 @@ navbar:
       href: index.html
     - text: "Why?"
       href: why.html
+output:
+  html_document:
+    css: "styles.css"
