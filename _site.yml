@@ -2,11 +2,6 @@ name: "cooking-recipes"
 output_dir: "."
 navbar:
   title: "Cooking Recipes"
-  left:
-    - text: "Home"
-      href: index.html
-    - text: "Why?"
-      href: why.html
 output:
   html_document:
     css: "styles.css"
