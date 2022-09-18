@@ -2,7 +2,6 @@
 title: "Recipes I use often"
 ---
 
-
 ```{r, include=FALSE}
 library(DT)
 library(purrr)
