@@ -3,7 +3,7 @@ on:
   # but only for the main branch
   push:
     branches:
-      - main
+      - main_
     paths-ignore: # Don't trigger on files that are updated by the CI
       - '.gitignore'
       - 'README.md'
